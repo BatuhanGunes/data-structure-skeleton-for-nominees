@@ -1,5 +1,7 @@
 public class Main {
 
+    private static final int[] startPoint = {0, 0};
+
     private static final int[] factoryPoint = {3, 7};
 
     private static final int[][] customerPoints = {{1, 4}, {1, 10},
@@ -63,5 +65,29 @@ public class Main {
      */
     private static int distanceFromFactory(int x, int y) {
         return (int) (distance(x, y, factoryPoint[0], factoryPoint[1]) * MULTIPLIER);
+    }
+
+    /**
+     * Calculates the distances from the specified point to other points.
+     *
+     * @return the index of the point with the smallest value of these offsets.
+     */
+    private static int closestCusToStartPoint() {
+        int indexFound = 0;
+        int[] closestPoint = Main.customerPoints[0];
+        double closestDist = distance(Main.startPoint[0], Main.startPoint[1],
+                closestPoint[0], closestPoint[1]);
+
+        // Traverse the array
+        for (int i = 0; i < Main.customerPoints.length; i++) {
+            double dist = distance(Main.startPoint[0], Main.startPoint[1],
+                    Main.customerPoints[i][0], Main.customerPoints[i][1]);
+            if (dist < closestDist && dist != 0.0) {
+                closestDist = dist;
+                indexFound = i;
+            }
+        }
+        //return closestPoint index;
+        return indexFound;
     }
 }
