@@ -10,5 +10,8 @@ public class Main {
         // print nodes
         System.out.print("Print Nodes: ");
         node.printNodes();
+
+        // print node length
+        System.out.println("\nLength: " + node.length(node));
     }
 }

@@ -31,7 +31,14 @@ public class Node {
 
     // TODO:: Implement to return the length of the SinglyLinkedList
     int length(Node h) {
-        return 0;
+        int count = 0;
+
+        //recursively traverse the nodes
+        while (h != null) {
+            count++;
+            h = h.following;
+        }
+        return count;
     }
 
     // TODO:: Implement to return the sum of the Nodes
