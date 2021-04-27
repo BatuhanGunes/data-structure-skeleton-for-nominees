@@ -2,13 +2,21 @@ public class Main {
 
     private static final int[] factoryPoint = {3, 7};
 
+    private static final int[][] customerPoints = {{1, 4}, {1, 10},
+            {2, 1}, {5, 2}, {6, 5}, {8, 4}, {8, 9}, {9, 2}};
+
+    private static final int MULTIPLIER = 1000;
+
     public static void main(String[] args) {
-        // Example
-        Node node = new Node(4);
-        node.appendToEnd(5);
-        node.appendToEnd(6);
-        node.appendToEnd(7);
-        // End of Example
+
+        // Each node represents a customer.
+        // Node(data) indicates the distance of the customer from the factory.
+        Node node = new Node(distanceFromFactory(customerPoints[0][0], customerPoints[0][1]));
+
+        // adding customers to the linked list
+        for (int i = 1; i < customerPoints.length; i++) {
+            node.appendToEnd(distanceFromFactory(customerPoints[i][0], customerPoints[i][1]));
+        }
 
         // print nodes
         System.out.print("Print Nodes: ");
@@ -54,6 +62,6 @@ public class Main {
      * @return the distance from a specifically given point to the factory.
      */
     private static int distanceFromFactory(int x, int y) {
-        return (int) (distance(x, y, factoryPoint[0], factoryPoint[1]));
+        return (int) (distance(x, y, factoryPoint[0], factoryPoint[1]) * MULTIPLIER);
     }
 }
