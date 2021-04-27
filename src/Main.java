@@ -24,4 +24,20 @@ public class Main {
             temp.printNodes();
         }
     }
+
+    /**
+     * Returns the distance between 2 points
+     * in the coordinate system with the formula
+     * √(x1 - x2)^2 + (y1 - y2)^2
+     * @param x1 coordinate value of the first point
+     * @param y1 coordinate value of the first point
+     * @param x2 coordinate value of the second point
+     * @param y2 coordinate value of the second point
+     * @return Distance between 2 points
+     */
+    private static double distance(int x1, int y1, int x2, int y2) {
+        double x = Math.pow(x2 - x1, 2);
+        double y = Math.pow(y2 - y1, 2);
+        return Math.sqrt(x + y);
+    }
 }
