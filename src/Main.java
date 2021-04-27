@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 public class Main {
 
     private static final int[] startPoint = {0, 0};
@@ -36,6 +38,11 @@ public class Main {
         if (temp != null) {
             temp.printNodes();
         }
+
+        System.out.println("\n\n------------------------------------------\n");
+
+        // calculate shortest path and print
+        System.out.println("Shortest Path: " + calculateShortestPath(node));
     }
 
     /**
@@ -89,5 +96,30 @@ public class Main {
         }
         //return closestPoint index;
         return indexFound;
+    }
+
+    /**
+     * Calculates the shortest path according to
+     * whether the starting point is factory or infinity(∞).
+     *
+     * @param node linked list structure specifying each point
+     * @return the shortest path
+     */
+    private static double calculateShortestPath(Node node) {
+        if (Arrays.equals(startPoint, factoryPoint)) {
+            return (double) (node.sumOfNodes() * 2) / MULTIPLIER;
+        } else {
+            // The point closest to the starting point is found
+            int index = closestCusToStartPoint();
+            int[] closest = customerPoints[index];
+            double closestDistanceToStart = distance(startPoint[0], startPoint[1], closest[0], closest[1]);
+
+            double factoryDisToStartCus = (double) distanceFromFactory(
+                    customerPoints[index][0], customerPoints[index][1]) / MULTIPLIER;
+
+            double totalPath = (double) (node.sumOfNodes() * 2) / MULTIPLIER;
+
+            return totalPath - factoryDisToStartCus + closestDistanceToStart;
+        }
     }
 }
