@@ -63,8 +63,28 @@ public class Node {
             return head.following;
         }
         // TODO:: Implement the proper loop in order to remove given data
+        // Store head node
+        Node prev = null;
 
+        // Search for the key to be deleted, keep track of
+        // the previous node as we need to change temp.next
+        while (n != null && n.data != data) {
+            prev = n;
+            n = n.following;
+        }
+
+        // If key was not present in linked list
+        if (n != null) {
+            // Unlink the node from linked list
+            prev.following = n.following;
+            System.out.print("Delete Node Success: ");
+            System.out.print("Node with a value of " + data + " was deleted");
+        } else {
+            System.out.print("Delete Node Failed: ");
+            System.out.print("A Node with a value of " + data + " was not found");
+        }
         //
         return head;
     }
+    // References: https://www.geeksforgeeks.org/
 }

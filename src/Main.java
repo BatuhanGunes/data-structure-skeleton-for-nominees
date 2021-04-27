@@ -16,5 +16,12 @@ public class Main {
 
         // print sum of nodes
         System.out.println("Sum Of Nodes: " + node.sumOfNodes());
+
+        // delete nodes and print new node
+        Node temp = node.deleteNode(node, 1);
+        System.out.print("\nNew Print Nodes: ");
+        if (temp != null) {
+            temp.printNodes();
+        }
     }
 }
