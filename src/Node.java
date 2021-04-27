@@ -43,7 +43,18 @@ public class Node {
 
     // TODO:: Implement to return the sum of the Nodes
     int sumOfNodes() {
-        return 0;
+        int sum = 0;
+        sum += data;
+        Node temp = following;
+
+        while (temp != null) {
+            // accumulate sum
+            sum += temp.data;
+
+            //traverse the remaining nodes
+            temp = temp.following;
+        }
+        return sum;
     }
 
     Node deleteNode(Node head, int data) {

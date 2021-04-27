@@ -13,5 +13,8 @@ public class Main {
 
         // print node length
         System.out.println("\nLength: " + node.length(node));
+
+        // print sum of nodes
+        System.out.println("Sum Of Nodes: " + node.sumOfNodes());
     }
 }
