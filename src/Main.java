@@ -1,4 +1,7 @@
 public class Main {
+
+    private static final int[] factoryPoint = {3, 7};
+
     public static void main(String[] args) {
         // Example
         Node node = new Node(4);
@@ -29,6 +32,7 @@ public class Main {
      * Returns the distance between 2 points
      * in the coordinate system with the formula
      * √(x1 - x2)^2 + (y1 - y2)^2
+     *
      * @param x1 coordinate value of the first point
      * @param y1 coordinate value of the first point
      * @param x2 coordinate value of the second point
@@ -39,5 +43,17 @@ public class Main {
         double x = Math.pow(x2 - x1, 2);
         double y = Math.pow(y2 - y1, 2);
         return Math.sqrt(x + y);
+    }
+
+
+    /**
+     * Calculates the distance from a specific point to the factory
+     *
+     * @param x coordinate of the point to be measured
+     * @param y coordinate of the point to be measured
+     * @return the distance from a specifically given point to the factory.
+     */
+    private static int distanceFromFactory(int x, int y) {
+        return (int) (distance(x, y, factoryPoint[0], factoryPoint[1]));
     }
 }
