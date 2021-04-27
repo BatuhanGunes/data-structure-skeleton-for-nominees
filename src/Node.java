@@ -21,6 +21,12 @@ public class Node {
     // TODO:: Implement to return the length of the SinglyLinkedList
     // For example:: --> 5 --> 6 --> 7 --> 3 --> .
     public void printNodes() {
+        System.out.print(data);
+        if (following != null) {
+            System.out.print(" ");
+            //recursively traverse the remaining nodes
+            following.printNodes();
+        }
     }
 
     // TODO:: Implement to return the length of the SinglyLinkedList

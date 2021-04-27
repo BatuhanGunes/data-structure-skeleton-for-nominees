@@ -6,5 +6,9 @@ public class Main {
         node.appendToEnd(6);
         node.appendToEnd(7);
         // End of Example
+
+        // print nodes
+        System.out.print("Print Nodes: ");
+        node.printNodes();
     }
 }
